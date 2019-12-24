@@ -275,6 +275,15 @@ Let's rock and roll.
 
     This will proxy requests we make to `/.netlify/functions` to our locally-running function server at port 9000.
 
+    See https://stackoverflow.com/questions/52605997/when-specified-proxy-in-package-json-must-be-a-string about:
+
+```
+netlify-lambda: Starting server
+When specified, "proxy" in package.json must be a string.
+Instead, the type of "proxy" was "object".
+Either remove "proxy" from package.json, or make it a string.
+```
+
 3. **Add our `start` & `build` commands**
 
     Let's go ahead and add our `start` & `build` command to npm scripts in `package.json`. These will let us run things locally and give a command for Netlify to build our app and functions when we are ready to deploy.
