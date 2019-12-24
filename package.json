@@ -26,7 +26,7 @@
     "👇 ABOUT-build-command": "💡 build the react app and the serverless functions #",
     "build": "npm-run-all --parallel build:**",
     "build:app": "react-scripts build",
-    "build:functions": "netlify-lambda build functions -c ./node_modules/react-scripts/config/webpack.config.js"
+    "build:functions": "NODE_ENV=production netlify-lambda build functions -c ./node_modules/react-scripts/config/webpack.config.js"
   },
   "devDependencies": {
     "http-proxy-middleware": "^0.20.0",
