@@ -7,6 +7,7 @@ import api from "./utils/api";
 import sortByDate from "./utils/sortByDate";
 import isLocalHost from "./utils/isLocalHost";
 import "./App.css";
+import { NavHeader } from "./modules/user-management/NavHeader";
 
 export default class App extends Component {
   state = {
@@ -320,6 +321,7 @@ export default class App extends Component {
   render() {
     return (
       <div className="app">
+        <NavHeader />
         <AppHeader />
 
         <div className="todo-list">
