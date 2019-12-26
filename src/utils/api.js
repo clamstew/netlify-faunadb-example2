@@ -3,7 +3,8 @@ import { getAuthToken } from "../modules/user-management/user-service";
 // https://stackoverflow.com/questions/43842793/basic-authentication-with-fetch
 const getHeaders = () => {
   let headers = new Headers();
-  headers.set("Authorization", "Basic " + getAuthToken() + ":");
+  const token = getAuthToken();
+  headers.set("Authorization", "Basic " + token + ":");
   return headers;
 };
 
