@@ -36,6 +36,7 @@ function createFaunaDB(key) {
   // check this out https://github.com/fauna/netlify-faunadb-todomvc/blob/master/scripts/bootstrap-fauna-database.js
   return client
     .query(q.Create(q.Ref("classes"), { name: "todos" }))
+    .query(q.Create(q.Ref("classes"), { name: "users" }))
     .then(() => {
       return client.query(
         q.Create(q.Ref("indexes"), {
@@ -43,6 +44,16 @@ function createFaunaDB(key) {
           source: q.Ref("classes/todos")
         })
       );
+
+      /*
+        CreateIndex({
+          name: "users_by_email",
+          permissions: { read: "public"},
+          source: Collection("users"),
+          terms: [{field: ["data", "email"]}],
+          unique: true,
+        })
+      */
     })
     .catch(e => {
       // Database already exists
